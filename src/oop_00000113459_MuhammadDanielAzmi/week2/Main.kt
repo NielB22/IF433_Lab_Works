@@ -12,6 +12,9 @@ fun main() {
     println("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
 
+    println("Masukkan GPA: ")
+    val gpa = scanner.nextDouble()
+
     scanner.nextLine()
 
     if (nim.length != 5) {
@@ -20,7 +23,7 @@ fun main() {
         println("Masukkan Jurusan: ")
         val major = scanner.nextLine()
 
-        val s1 = Student(name, nim, major)
+        val s1 = Student(name, nim, gpa, major)
         println("Status: Pendaftaran Selesai.")
     }
 
