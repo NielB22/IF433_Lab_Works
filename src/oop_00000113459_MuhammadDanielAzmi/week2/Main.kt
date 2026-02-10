@@ -12,9 +12,6 @@ fun main() {
     println("Masukkan NIM (Wajib 5 Karakter): ")
     val nim = scanner.next()
 
-    println("Masukkan GPA: ")
-    val gpa = scanner.nextDouble()
-
     scanner.nextLine()
 
     if (nim.length != 5) {
@@ -23,8 +20,23 @@ fun main() {
         println("Masukkan Jurusan: ")
         val major = scanner.nextLine()
 
-        val s1 = Student(name, nim, gpa, major)
+        val s1 = Student(name, nim, major)
         println("Status: Pendaftaran Selesai.")
     }
 
+    print("Pilih Jalur (1. Reguler, 2. Umum): ")
+    val type = scanner.nextInt()
+    scanner.nextLine()
+
+    if (type == 1) {
+        print("Masukkan Jurusan: ")
+        val major = scanner.nextLine()
+        val s1 = Student(name, nim, major)
+        println("Terdaftar di: ${s1.major} dengan GPA awal ${s1.gpa}")
+    } else if (type == 2) {
+        val s2 = Student(name, nim)
+        print("Terdaftar di: ${s2.major} dengan GPA awal ${s2.gpa}")
+    } else {
+        println("Pilihan ngawur, pendaftaran gagal!")
+    }
 }

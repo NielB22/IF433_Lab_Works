@@ -3,8 +3,8 @@ package oop_00000113459_MuhammadDanielAzmi.week2
 class Student (
     val name: String,
     val nim: String,
-    var gpa: Double = 0.0,
-    var major: String
+    var major: String,
+    var gpa: Double = 0.0
 ){
     init {
         if (nim.length != 5) {
@@ -15,7 +15,7 @@ class Student (
         }
     }
 
-    constructor(name: String, nim: String, gpa: Double) : this(name, nim, gpa, major = "Non-Matriculated") {
+    constructor(name: String, nim: String) : this(name, nim, major = "Non-Matriculated") {
         println("LOG: Menggunakan constructor jalur umum (Tanpa Jurusan).")
     }
 }
