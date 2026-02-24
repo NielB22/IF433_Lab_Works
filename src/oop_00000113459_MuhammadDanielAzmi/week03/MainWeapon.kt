@@ -7,4 +7,11 @@ fun main() {
     println()
     println("Tier: ${wpn.tier}")
     println("Damage: ${wpn.damage}")
+
+    println()
+    var pl = Player("Jon Snow")
+    pl.addXp(50)
+    pl.addXp(60)
+
+    println("Level: ${pl.level}")
 }
