@@ -11,6 +11,12 @@ fun main() {
 
     // Perulangan dan proses pembayaran
     for (method in paymentMethods) {
+
+        when (method) {
+            is EWallet -> {
+                method.topUp(50000.0)
+            }
+        }
         println("=== Proses pembayaran dengan ${method.accountName} ===")
         method.processPayment(75000.0)
         println()
