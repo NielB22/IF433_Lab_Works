@@ -5,7 +5,7 @@ fun main() {
     val speaker = SmartSpeaker("2", "Google Nest Dapur")
     val cctv = SmartCCTV("3", "Ezviz Garasi")
 
-    println("\n============== SMART HOME ==============")
+    println("\n============= SMART HOME =============")
     println("SmartLamp    : ${lamp.id} - ${lamp.name}")
     println("SmartSpeaker : ${speaker.id} - ${speaker.name}")
     println("SmartCCTV    : ${cctv.id} - ${cctv.name}")
