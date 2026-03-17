@@ -1,6 +1,6 @@
 package oop_00000113459_MuhammadDanielAzmi.week7
 
-object DatabseManager {
+object DatabaseManager {
     var connectionStatus :String = "Disconnected"
 
     fun connect() {
