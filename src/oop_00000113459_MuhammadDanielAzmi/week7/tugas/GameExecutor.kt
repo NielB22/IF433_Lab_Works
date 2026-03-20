@@ -8,7 +8,8 @@ fun processEvent(event: BattleState) {
         }
 
         is BattleState.LootDropped -> {
-            println("Loot           : ${event.item}")
+            val (name, damage, rarity) = event.item
+            println("Loot Dropped   : $name (Damage : $damage, Rarity : $rarity)")
         }
 
         is BattleState.GameOver -> {

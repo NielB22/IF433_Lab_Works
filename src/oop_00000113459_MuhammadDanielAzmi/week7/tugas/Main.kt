@@ -14,4 +14,15 @@ fun main() {
     println("Damage     : ${weaponS.item.damage}")
     println("Rarity     : ${weaponS.item.rarity}")
     println("Durability : ${weaponS.durability}")
+
+    println()
+    println("**Player sedang upgrade senjata**")
+    val upgradedItem = weaponS.item.copy(damage = 25)
+    println("Weapon upgraded : Damage = ${upgradedItem.damage}")
+
+    println()
+    processEvent(BattleState.SaveZone)
+    processEvent(BattleState.MonsterEncounter("Goblin Nakal"))
+    processEvent(BattleState.LootDropped(upgradedItem))
+    processEvent(BattleState.GameOver("Terkena jebakan racun"))
 }
