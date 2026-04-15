@@ -28,4 +28,17 @@ fun main() {
         "Laptop",
         4500000.0
     )
+
+    for (item in mixedData) {
+        val text = item as? String
+        val num = item as? Int
+
+        text?.let {
+            println("Ditemukan teks: ${it.uppercase()}")
+        }
+
+        num?.let {
+            println("Ditemukan angka: ${it}")
+        }
+    }
 }
