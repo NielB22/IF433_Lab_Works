@@ -57,7 +57,7 @@ fun main() {
 
     val apiResponse: Map<String, String?> = mapOf("status" to "200", "token" to null)
     try {
-        // Alih-alih apiResponse["token"]!!
+        // Alih-alih apiResponse["token"]!!!
         val token = requireNotNull(apiResponse["token"]) {
             "CRITICAL EXCEPTION: Token otentifikasi tidak ditemukan dari server!"
         }
