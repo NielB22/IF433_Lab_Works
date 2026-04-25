@@ -33,6 +33,7 @@ fun main() {
         .map { it.pair }
         .toSet()
 
+
     println("\n========== CRYPTO TRADING DASHBOARD ==========")
     println("\n               TOP PERFORMERS                 ")
     topPerformersString.forEach { println(it) }
