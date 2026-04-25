@@ -7,12 +7,12 @@ fun main() {
     val frameworks: List<String> = listOf("Kotilin", "Java", "C")
     println("Immutable List: $frameworks")
 
-    val scores: MutableList<Int> = mutableListOf(85, 90, 85)
+    val scores: MutableList<Int> = mutableListOf(85, 90, 90)
     scores.add(95)
     scores[0] = 88
     println("Mutable List: $scores")
 
-    println("\n=== TEST TEST ===")
+    println("\n=== TEST SET ===")
     val uniqueNumbers: Set<Int> = setOf(1, 2, 2, 3, 3, 4)
     println("Unique numbers (setOf) : $uniqueNumbers")
 
@@ -20,5 +20,21 @@ fun main() {
     activeUsers.add("UserZ")
     activeUsers.add("UserA")
     println("Active Users: $activeUsers")
+
+    println("\n=== TEST MAP ===")
+    val studentGrades : Map<String, String> = mapOf(
+        "Alice" to "A",
+        "Bob" to "B",
+        "Charlie" to "A", // Value boleh duplikat, Keys tidak boleh!
+    )
+    println("Nilai Bob: ${studentGrades["Bob"]}")
+
+    val inventory: MutableMap<String, Int> = mutableMapOf(
+        "Apple" to 50,
+        "Bananas" to 30
+    )
+    inventory["Apple"] = 30
+    inventory["DragonFruit"] = 25
+    println("Inventory: $inventory")
 }
 
