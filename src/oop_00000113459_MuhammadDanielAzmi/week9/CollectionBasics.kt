@@ -35,6 +35,8 @@ fun main() {
     )
     inventory["Apple"] = 30
     inventory["DragonFruit"] = 25
+    println(studentGrades.keys.elementAt(2))
+    println(studentGrades.values.elementAt(2))
     println("Inventory: $inventory")
 }
 
