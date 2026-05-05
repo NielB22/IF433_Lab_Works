@@ -8,4 +8,13 @@ fun main() {
         it.length
     }
     println("Panjang nama: $length")
+
+    fun runBlock() {
+        println("\n=== TEST RUN FUNCTION ===")
+        val result = "Kotlin".run {
+            println("Memproses kata: ${this}")
+            this.length * 2
+        }
+        println("Hasil kalkulasi run: $result")
+    }
 }
