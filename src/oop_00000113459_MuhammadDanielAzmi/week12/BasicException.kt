@@ -21,5 +21,5 @@ fun main() {
         -1
     }
 
-    println("Hasil parsing: $result"
+    println("Hasil parsing: $result")
 }
