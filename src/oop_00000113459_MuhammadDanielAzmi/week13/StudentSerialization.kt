@@ -19,3 +19,17 @@ fun fromCsv(line: String): Student {
         gpa = parts[2].trim().toDouble()
     )
 }
+
+// --- LANGKAH 3: Sistem Pemuatan (Save & Load) ---
+fun saveStudents(students: List<Student>, path: String) {
+    File(path).writeText(students.joinToString(separator = "\n") { it.toCsv() })
+}
+
+fun loadStudents(path: String): List<Student> {
+    return try {
+        File(path).readLines().map { fromCsv(it) }
+    } catch (e: FileNotFoundException) {
+        println("Error: File tidak ditemukan!")
+        emptyList()
+    }
+}
