@@ -1,5 +1,6 @@
 package oop_00000113459_MuhammadDanielAzmi.week13
 
+import java.io.File
 import java.io.FileNotFoundException
 
 // 1. Model Data (CHECKPOINT 11)
@@ -31,5 +32,15 @@ fun fromCsvTrade(line: String): TradeRecord? {
         // Menangkap NumberFormatException atau IndexOutOfBoundsException secara aman
         println("(Log) Data korup diabaikan: $line")
         null
+    }
+}
+
+
+// 5. Write System (CHECKPOINT 15)
+fun saveTrades(trades: List<TradeRecord>, path: String) {
+    File(path).printWriter().use { writer ->
+        trades.forEach { trade ->
+            writer.println(trade.toCsv())
+        }
     }
 }
