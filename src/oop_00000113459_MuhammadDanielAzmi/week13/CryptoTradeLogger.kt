@@ -73,4 +73,9 @@ fun main() {
     val loadedData = loadTrades(filePath)
     val totalPnl = loadedData.sumOf { it.pnl }
 
+    // 10. Final Execution (CHECKPOINT 20)
+    println("\n--- VALID TRADES IN SYSTEM ---")
+    loadedData.forEach { println(it) }
+
+    println("\n==== TOTAL PnL BERSIH: $totalPnl ====")
 }
