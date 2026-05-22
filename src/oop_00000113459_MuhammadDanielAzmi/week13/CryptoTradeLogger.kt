@@ -16,7 +16,6 @@ data class TradeRecord(
 fun TradeRecord.toCsv(): String = "$id,$symbol,$type,$margin,$pnl"
 
 
-
 // 3 & 4 Deserialization & Robust Error Handling (CHECKPOINT 13 & 14)
 fun fromCsvTrade(line: String): TradeRecord? {
     return try {
