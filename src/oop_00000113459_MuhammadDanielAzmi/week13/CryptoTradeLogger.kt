@@ -69,4 +69,8 @@ fun main() {
     // 8. Injecting Malformed Data (CHECKPOINT 18)
     File(filePath).appendText("CORRUPT_ID, DOGEUSDT, Hold, XX, YY\n")
 
+    // 9. Aggregation & Calculation (CHECKPOINT 19)
+    val loadedData = loadTrades(filePath)
+    val totalPnl = loadedData.sumOf { it.pnl }
+
 }
