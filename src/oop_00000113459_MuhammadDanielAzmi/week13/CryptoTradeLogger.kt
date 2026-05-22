@@ -14,3 +14,23 @@ data class TradeRecord(
 
 // 2. Serialization (CHECKPOINT 12)
 fun TradeRecord.toCsv(): String = "$id,$symbol,$type,$margin,$pnl"
+
+
+
+// 3 & 4 Deserialization & Robust Error Handling (CHECKPOINT 13 & 14)
+fun fromCsvTrade(line: String): TradeRecord? {
+    return try {
+        val parts = line.split(",")
+        TradeRecord(
+            id = parts[0].trim().toInt(),
+            symbol = parts[1].trim(),
+            type = parts[2].trim(),
+            margin = parts[3].trim().toDouble(),
+            pnl = parts[4].trim().toDouble()
+        )
+    } catch (e: Exception) {
+        // Menangkap NumberFormatException atau IndexOutOfBoundsException secara aman
+        println("(Log) Data korup diabaikan: $line")
+        null
+    }
+}
