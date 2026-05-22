@@ -42,9 +42,9 @@ fun main() {
         Student(name = "Bob", age = 22, gpa = 3.5)
     )
 
-    saveStudents(students, "students.csv")
+    saveStudents(students, "src/oop_00000113459_MuhammadDanielAzmi/week13/students.csv")
 
-    val loaded = loadStudents("students.csv")
+    val loaded = loadStudents("src/oop_00000113459_MuhammadDanielAzmi/week13/students.csv")
     println("=== LOADED STUDENT DATA ===")
     loaded.forEach { println(it) }
 }
