@@ -19,3 +19,6 @@ class SafeDiscountCalculator(private val strategy: DiscountStrategy) {
 class SeniorDiscount : DiscountStrategy {
     override fun apply(price: Double) = price * 0.75
 }
+
+
+
