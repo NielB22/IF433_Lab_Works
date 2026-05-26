@@ -54,15 +54,46 @@ class EmailNotifier : NotificationService {
     }
 }
 
-// Class Bot Utama hasil Dependency Injection
+// Definisikan Interface Strategi Harga (OCP)
+interface PricingStrategy {
+    val name: String
+    fun calculate(price: Double): Double
+}
+
+class RegularPricing : PricingStrategy {
+    override val name: String = "REGULAR"
+    override fun calculate(price: Double): Double = price
+}
+
+class VipPricing : PricingStrategy {
+    override val name: String = "VIP"
+    override fun calculate(price: Double): Double = price * 0.90
+}
+
+// Modifikasi SafeOrderProcessor final agar menerapkan OCP penuh
 class SafeOrderProcessor(
     private val repo: OrderRepository,
     private val notifier: NotificationService
 ) {
-    // Fungsi sementara penyeimbang struktur sebelum OCP diterapkan penuh
-    fun processOrder(itemName: String, finalPrice: Double, customerType: String) {
+    // Blok when dihapus, logika perhitungan runtime bergantung pada objek strategi yang disuntikkan
+    fun processOrder(itemName: String, basePrice: Double, pricingStrategy: PricingStrategy) {
+        val finalPrice = pricingStrategy.calculate(basePrice)
+
         println("Memproses pesanan $itemName seharga $finalPrice")
-        repo.saveOrder(itemName, finalPrice, customerType)
+        repo.saveOrder(itemName, finalPrice, pricingStrategy.name)
         notifier.sendNotification(itemName)
     }
 }
+
+// Contoh eksekusi fungsi main (Opsional untuk testing lokal)
+fun main() {
+    val repository = CsvOrderRepository()
+    val notifier = EmailNotifier()
+    val orderProcessor = SafeOrderProcessor(repository, notifier)
+
+    // Test memproses pesanan dengan berbagai jenis strategi harga secara fleksibel
+    orderProcessor.processOrder("Laptop Asus", 15000000.0, VipPricing())
+    orderProcessor.processOrder("Mouse Logitech", 300000.0, RegularPricing())
+}
+
+
