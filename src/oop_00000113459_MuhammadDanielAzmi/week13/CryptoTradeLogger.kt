@@ -63,7 +63,7 @@ fun main() {
         TradeRecord(2, "ETHUSDT", "Short", 100.0, -12.3),
         TradeRecord(3, "SOLUSDT", "Long", 75.0, 18.2)
     )
-    val filePath = "crypto_trades.csv"
+    val filePath = "src/oop_00000113459_MuhammadDanielAzmi/week13/crypto_trades.csv"
     saveTrades(mockTrades, filePath)
 
     // 8. Injecting Malformed Data (CHECKPOINT 18)
